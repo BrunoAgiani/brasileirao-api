@@ -25,17 +25,21 @@ public class SwaggerConfig {
     private static final String CONTATO_EMAIL = "brunoaalisboa@gmail.com";
 
     @Bean
-    public Docket api(){
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(basePackage(BASE_PACKAGE)).paths(PathSelectors.any()).build()
+                .apis(basePackage(BASE_PACKAGE))
+                .paths(PathSelectors.any())
+                .build()
                 .apiInfo(buildApiInfo());
     }
 
     private ApiInfo buildApiInfo() {
         return new ApiInfoBuilder()
-                .title(API_TITULO).description(API_DESCRICAO)
-                .version(API_VERSAO).contact(new Contact(CONTATO_NOME,CONTATO_GITHUB,CONTATO_EMAIL))
+                .title(API_TITULO)
+                .description(API_DESCRICAO)
+                .version(API_VERSAO)
+                .contact(new Contact(CONTATO_NOME, CONTATO_GITHUB, CONTATO_EMAIL))
                 .build();
     }
 }
